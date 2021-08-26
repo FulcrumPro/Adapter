@@ -26,7 +26,7 @@
     "build:browser-cjs": "rollup -c config/exports/rollup.config.js -f cjs -o build/browser/index.cjs.js",
     "build:resolve-sourcemaps": "sorcery -i build/browser/index.js && sorcery -i build/browser/index.cjs.js",
     "build:tests": "trash test && node config/exports/build-tests.js",
-    "lint": "tslint --project . --type-check src/**/*.ts",
+    "lint": "tslint --project . src/**/*.ts",
     "lint:prettier": "prettier --config .prettierrc --ignore-path .prettierignore --check src",
     "lint:prettier:fix": "prettier --config .prettierrc --ignore-path .prettierignore --write src",
     "unit": "nqr build && nqr build:tests && nyc ava",
@@ -142,7 +142,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

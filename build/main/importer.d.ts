@@ -4,7 +4,7 @@ import { Results } from './results';
 export declare class FlatfileImporter extends EventEmitter {
     static Promise: PromiseConstructor;
     private static MOUNT_URL;
-    private static UserBulkInitHook?;
+    private UserBulkInitHook?;
     /**
      * Promise that resolves when the handshake is completed between Flatfile.io and the adapter
      */
@@ -33,7 +33,7 @@ export declare class FlatfileImporter extends EventEmitter {
      * This allows you to opt into or out of specific versions of the Flatfile SDK
      */
     static setVersion(version: 1 | 2): void;
-    static setUserBulkInitHook(cb: (rows: any, mode: any) => {} | undefined): void;
+    setUserBulkInitHook(cb: (rows: any, mode: any) => {} | undefined): void;
     /**
      * Call open() to activate the importer overlay dialog.
      */
