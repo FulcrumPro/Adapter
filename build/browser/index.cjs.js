@@ -1752,8 +1752,8 @@ var FlatfileImporter$1 = /** @class */ (function (_super) {
                 throw new Error(version + " is not a valid version");
         }
     };
-    FlatfileImporter.setUserBulkInitHook = function (cb) {
-        FlatfileImporter.UserBulkInitHook = cb;
+    FlatfileImporter.prototype.setUserBulkInitHook = function (cb) {
+        this.UserBulkInitHook = cb;
     };
     /**
      * Call open() to activate the importer overlay dialog.
@@ -1957,8 +1957,8 @@ var FlatfileImporter$1 = /** @class */ (function (_super) {
                 },
                 bulkHookCallback: function (rows, mode) {
                     try {
-                        if (FlatfileImporter.UserBulkInitHook) {
-                            return FlatfileImporter.UserBulkInitHook(rows, mode);
+                        if (_this.UserBulkInitHook) {
+                            return _this.UserBulkInitHook(rows, mode);
                         }
                         var hooks = _this.$recordHook
                             ? Promise.all(rows.map(function (_a) {
